@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 
 import { InvoiceItemModel } from "../models/invoicing-model";
-import { InvoicingItemsService } from "./invoicing-items.service";
+import { InvoicingItemsService } from "../services/invoicing-items/invoicing-items.service";
 
 @Component({
   selector: 'app-invoicing',

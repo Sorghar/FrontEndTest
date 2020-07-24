@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { InvoiceItemModel } from "../models/invoicing-model";
+import { InvoiceItemModel } from "../../models/invoicing-model";
 
 @Injectable()
 export class InvoicingItemsService {
