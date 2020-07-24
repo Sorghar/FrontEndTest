@@ -16,7 +16,7 @@ export class InvoicingComponent implements OnInit {
   searchedItems: InvoiceItemModel[];
 
   private items: InvoiceItemModel[];
-  private searchTerm: string;
+  private searchTerm = '';
 
   constructor(private itemsService: InvoicingItemsService) { }
 
@@ -37,6 +37,5 @@ export class InvoicingComponent implements OnInit {
   searchItems(value: string) {
     this.searchTerm = value;
     this.searchedItems = this.items.filter(i => i.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
-
   }
 }

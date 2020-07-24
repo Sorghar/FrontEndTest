@@ -34,14 +34,6 @@ export class InvoiceListComponent implements OnInit {
 
   ngOnInit() { }
 
-  getItemStatus(item: InvoiceItemModel): string {
-    return item.price < 0.5 ? 'Vystavená' : 'Zaplatená';
-  }
-
-  getItemClass(item: InvoiceItemModel): string {
-    return item.price < 0.5 ? 'badge-primary' : 'badge-success';
-  }
-
   search() {
     this.searchEvent.emit(this.searchControl.value);
   }
