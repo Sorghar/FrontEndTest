@@ -1,44 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from "@angular/forms";
 
-import { InvoiceItemModel } from "../models/invoicing-model";
-import { InvoicingItemsService } from "../services/invoicing-items/invoicing-items.service";
+import {InvoiceItemModel} from "../models/invoicing-model";
+import {InvoicingItemsService} from "../services/invoicing-items/invoicing-items.service";
 
 @Component({
   selector: 'app-invoicing',
   templateUrl: './invoicing.component.html',
   styleUrls: ['./invoicing.component.scss'],
-  providers: [ InvoicingItemsService ]
+  providers: [InvoicingItemsService]
 })
 export class InvoicingComponent implements OnInit {
 
   newItem = new FormControl('');
-  paidInvoicesCount: number;
   searchedItems: InvoiceItemModel[];
-  searchTerm = new FormControl('');
-  unpaidInvoicesCount: number;
 
   private items: InvoiceItemModel[];
+  private searchTerm: string;
 
   constructor(private itemsService: InvoicingItemsService) { }
 
   ngOnInit() {
     this.items = this.itemsService.getItems();
-    this.searchItems();
-  }
-
-  getItemStatus(item: InvoiceItemModel): string {
-    return item.price < 0.5 ? 'Vystavená' : 'Zaplatená';
-  }
-
-  getItemClass(item: InvoiceItemModel): string {
-    return item.price < 0.5 ? 'badge-primary' : 'badge-success';
-  }
-
-  searchItems() {
-    this.searchedItems = this.items.filter(i => i.name.toLowerCase().includes(this.searchTerm.value.toLowerCase()));
-    this.paidInvoicesCount = this.searchedItems.filter(i => i.price >= 0.5).length;
-    this.unpaidInvoicesCount = this.searchedItems.filter(i => i.price < 0.5).length;
+    this.searchedItems = this.items;
   }
 
   addItem() {
@@ -47,6 +31,12 @@ export class InvoicingComponent implements OnInit {
       price: 0
     });
     this.newItem.setValue('');
-    this.searchItems();
+    this.searchItems(this.searchTerm);
+  }
+
+  searchItems(value: string) {
+    this.searchTerm = value;
+    this.searchedItems = this.items.filter(i => i.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+
   }
 }

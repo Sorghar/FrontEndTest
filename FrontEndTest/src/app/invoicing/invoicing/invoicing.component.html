@@ -1,28 +1,5 @@
 <div class="invoicing-container">
-  <div class="sidebar-wrapper">
-    <aside>
-      <header>
-        <input class="form-control mr-sm-2"
-               type="search"
-               placeholder="Hľadať"
-               aria-label="Hľadať"
-               [formControl]="searchTerm"
-               (input)="searchItems()">
-      </header>
-
-      <ul class="list-group">
-        <li *ngFor="let i of searchedItems" class="list-group-item d-flex justify-content-between align-items-center">
-          {{i.name}}
-          <span class="badge badge-pill" [ngClass]="getItemClass(i)">{{ getItemStatus(i) }}</span>
-        </li>
-      </ul>
-
-      <footer>
-        <div>Uhradených: {{ paidInvoicesCount }}</div>
-        <div>Neuhradených: {{ unpaidInvoicesCount }}</div>
-      </footer>
-    </aside>
-  </div>
+  <app-invoice-list [items]="searchedItems" (searchEvent)="searchItems($event)"></app-invoice-list>
   <main>
     <form (ngSubmit)="addItem()">
       <div class="add-container">

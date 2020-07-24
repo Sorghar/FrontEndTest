@@ -1,0 +1,42 @@
+@import "src/styles/colors";
+
+.sidebar-wrapper {
+  position: absolute;
+  left: 0;
+  height: 100%;
+
+  aside {
+    height: 100%;
+    width: 320px;
+    border-right: 1px solid $border-color;
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 100px;
+
+    header {
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    ul {
+      height: 100%;
+      overflow: auto;
+    }
+
+    footer {
+      height: 100px;
+      padding: 1rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid $border-color;
+
+      div {
+        font-weight: $font-weight-bold;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
