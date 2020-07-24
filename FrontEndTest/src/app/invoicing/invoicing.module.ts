@@ -1,16 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {InvoicingRoutingModule} from "./invoicing-routing.module";
-import { InvoicingComponent } from './invoicing/invoicing.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
 
+import { InvoicingComponent } from './invoicing/invoicing.component';
+import { InvoicingRoutingModule } from "./invoicing-routing.module";
 
 
 @NgModule({
-  declarations: [InvoicingComponent],
+  declarations: [
+    InvoicingComponent
+  ],
   imports: [
     CommonModule,
     InvoicingRoutingModule,
+    FormsModule,
     ReactiveFormsModule
   ]
 })

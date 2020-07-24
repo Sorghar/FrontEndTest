@@ -24,13 +24,15 @@
     </aside>
   </div>
   <main>
-    <div class="add-container">
-      <input class="form-control"
-             type="text"
-             placeholder="Pridať faktúru"
-             aria-label="Pridať faktúru"
-             [formControl]="newItem">
-    </div>
-    <button class="btn btn-primary" type="button" (click)="addItem()">Pridať faktúru</button>
+    <form (ngSubmit)="addItem()">
+      <div class="add-container">
+        <input class="form-control"
+               type="text"
+               placeholder="Pridať faktúru"
+               aria-label="Pridať faktúru"
+               [formControl]="newItem">
+      </div>
+      <button class="btn btn-primary">Pridať faktúru</button>
+    </form>
   </main>
 </div>

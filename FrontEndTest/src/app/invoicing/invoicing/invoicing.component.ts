@@ -1,8 +1,8 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from "@angular/forms";
 
-import {InvoicingItemsService} from "./invoicing-items.service";
-import {InvoiceItemModel} from "../models/invoicing-model";
-import {FormControl} from "@angular/forms";
+import { InvoiceItemModel } from "../models/invoicing-model";
+import { InvoicingItemsService } from "./invoicing-items.service";
 
 @Component({
   selector: 'app-invoicing',
@@ -42,10 +42,11 @@ export class InvoicingComponent implements OnInit {
   }
 
   addItem() {
-    this.items.push({
+    this.items.unshift({
       name: this.newItem.value,
-      price: 0 //Math.random?
+      price: 0
     });
+    this.newItem.setValue('');
     this.searchItems();
   }
 }
