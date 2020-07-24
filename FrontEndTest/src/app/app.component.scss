@@ -1,0 +1,10 @@
+.app-wrapper {
+  height: 100vh;
+  padding-top: 56px;
+
+  app-navigation {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
