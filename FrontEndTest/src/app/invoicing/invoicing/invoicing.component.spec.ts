@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { InvoicingComponent } from './invoicing.component';
 
@@ -8,7 +9,13 @@ describe('InvoicingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InvoicingComponent ]
+      declarations: [
+        InvoicingComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+      ]
     })
     .compileComponents();
   }));
